@@ -4,8 +4,6 @@
 
 A container to host website on Tor hidden service with .onion address. Tor is free software and an open network that helps you defend against traffic analysis, enabling anonymous communication. ".onion" is a special-use top level domain name designating a "hidden service" on the Dark Web, reachable via the Tor network/accessed via the Tor browser.
 
-### Container Image: [View on DockerHub](https://hub.docker.com/r/openpanel/torwebsite)
-
 # How to use this image
 
 ### Usage
@@ -13,6 +11,8 @@ A container to host website on Tor hidden service with .onion address. Tor is fr
 This image is included in [OpenPanel 1.2.9](https://openpanel.com/docs/changelog/1.2.9/) and newer. It's managed by the OpenPanel service and adding(importing) .onion domains is possible either [from the GUI](https://community.openpanel.org/d/158-beta-testers-wanted-for-tor-feature-in-openpanel-129-onion-domains) or [from the terminal](https://dev.openpanel.com/cli/domains.html#Add-onion-domain-to-user). Reverse-proxy is automatically created from users webserver and domain can be used for all OpenPanel services: redis, databases, wordpress, files, ets.
 
 It can be run standalone without OpenPanel, by running the image once to generate the domain, and then add it manually to another service for reverse-proxy, then starting the image again.
+
+build: `docker buildx build --platform linux/amd64,linux/arm64 -t openpanel/torwebsite:latest --push .`
 
 ### About
 
