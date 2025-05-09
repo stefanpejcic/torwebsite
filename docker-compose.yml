@@ -1,0 +1,20 @@
+# this image is designed to be run from OpenPanel
+# nginx, openresty, varnish or apache 
+#
+services:
+  tor:
+    image: openpanel/torwebsite:${TOR_VERSION:-latest}
+    container_name: tor
+    volumes:
+      - html_data:/var/www/html
+      - ./tor/hidden_service:/var/lib/tor/hidden_service
+      - ./tor/torrc:/etc/tor/torrc
+    deploy:
+      resources:
+        limits:
+          cpus: "${TOR_CPU:-0.35}"
+          memory: "${TOR_RAM:-0.35G}"
+          pids: 100
+    networks:
+      - www
+      - db
