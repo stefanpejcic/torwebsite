@@ -1,8 +1,8 @@
 FROM alpine:latest
-MAINTAINER Stefan Pejcic <stefan@pejcic.rs>
+LABEL maintainer="Stefan Pejcic <stefan@pejcic.rs>"
 
-RUN apk --no-cache --no-progress add tor torsocks &&\
-    mkdir /var/www/hidden_service /etc/boot-container
+RUN apk --no-cache --no-progress add tor torsocks && \
+    mkdir -p /var/www/hidden_service /etc/boot-container
 
 COPY configs/torrc /etc/tor
 COPY scripts/torhost.sh /etc/profile.d
