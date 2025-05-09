@@ -4,7 +4,6 @@ LABEL maintainer="Stefan Pejcic <stefan@pejcic.rs>"
 RUN apk --no-cache --no-progress add tor torsocks && \
     mkdir -p /var/lib/tor/hidden_service /etc/boot-container
 
-COPY configs/torrc /etc/tor
 COPY scripts/torhost.sh /etc/profile.d
 COPY scripts/bootstrap.sh /etc/boot-container
 
